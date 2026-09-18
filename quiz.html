@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>日语单词测试</title>
+<meta name="theme-color" content="#204564">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="日语单词测试">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
 <style>
 :root{--ink:#24313b;--navy:#204564;--paper:#fffdf6;--bg:#f1eee3;--line:#d8d0b9;--red:#b84a3c;--green:#39734b;--gold:#a77a21}*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f5f0e4,#e6eef0);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;padding:26px 14px}.app{max-width:760px;margin:auto}.head{text-align:center;margin:8px 0 20px}.head h1{margin:0;color:var(--navy);letter-spacing:5px;font-family:serif}.head p{font-size:13px;opacity:.65;margin:8px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 30px #40506018}.tag{display:inline-block;background:#eaf1f3;color:var(--navy);border-radius:99px;padding:5px 10px;font-size:12px;margin:3px}.tabs,.actions{display:flex;gap:10px;flex-wrap:wrap}.tabs{margin:16px 0}.tab,button{font:inherit;border:1px solid var(--line);border-radius:10px;background:#fff;padding:11px 14px;cursor:pointer}.tab.active,.tag.active,button.primary{background:var(--navy);border-color:var(--navy);color:#fff}.category{margin:18px 0 9px;font-weight:bold;color:var(--navy)}.settings{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}label{font-size:13px;font-weight:bold;display:block}select,input[type=number],input[type=text],textarea{width:100%;padding:10px;margin-top:6px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit}.progress{font-size:13px;display:flex;justify-content:space-between}.bar{height:7px;background:#e6dfcc;border-radius:5px;margin:10px 0 24px;overflow:hidden}.bar i{display:block;background:var(--navy);height:100%;transition:.25s}.prompt-label{color:var(--red);font-size:12px;letter-spacing:2px}.prompt{font-size:34px;font-weight:bold;margin:8px 0 5px;min-height:54px}.hint{color:#77818a;font-size:14px;margin-bottom:18px}.answer{font-size:18px;padding:13px;width:100%;border:2px solid var(--line);border-radius:10px}.answer:focus{outline:none;border-color:var(--navy)}.reveal{margin:16px 0;padding:15px;background:#f1eee3;border-radius:10px}.reveal b{font-size:23px;color:var(--navy)}.hidden{display:none}.good{color:var(--green)}.bad{color:var(--red)}.miss{margin:10px 12px 10px 0;padding:10px 12px;background:#f4efe3;border-radius:9px;display:flex;align-items:center;justify-content:space-between;gap:12px}.miss>span{min-width:0}.inline-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.inline-actions button{padding:8px 10px}.footer{text-align:center;font-size:12px;opacity:.55;margin:18px}.form-note{font-size:12px;color:#77818a;margin:8px 0 14px}.divider{border:0;border-top:1px solid var(--line);margin:22px 0}.library-tools{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin:14px 0}.library-tools input,.library-tools select{margin:0}.word-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0;max-height:520px;overflow:auto;padding-right:4px}.word-card{padding:12px;background:#f4efe3;border:1px solid #e5dcc5;border-radius:10px}.word-cn{font-weight:700;color:var(--navy);font-size:16px}.word-jp{margin-top:4px}.word-meta{font-size:12px;color:#77818a;margin-top:5px}.badge{display:inline-block;padding:2px 6px;border-radius:99px;background:#dce9df;color:var(--green);font-size:11px;margin-left:5px}.badge.learned{background:#ece4cf;color:#76591c}@media(max-width:520px){.card{padding:18px}.settings,.library-tools,.word-grid{grid-template-columns:1fr}.prompt{font-size:28px}.word-grid{max-height:440px}.miss{align-items:flex-start;flex-direction:column}.inline-actions{justify-content:flex-start}}
 </style>
@@ -38,20 +44,18 @@ const V=[
 ['表亲','itoko','いとこ','人物'],['乘坐','norimasu','のります','动词'],['路','michi','みち','地点'],['炸鸡','furaido chikin','フライドチキン','食物'],['薯片','poteto chippusu','ポテトチップス','食物'],['等','machimasu','まちます','动词'],['途中','tochuu','とちゅう','时间'],['怎么','dou yatte','どうやって','基础'],['叉子','fooku','フォーク','生活'],['通过（马路）','watarimasu','わたります','动词'],['耳机','heddohon','ヘッドホン','生活'],['玩具','omocha','おもちゃ','生活'],['平板电脑','taburetto','タブレット','生活'],['刀','naifu','ナイフ','生活'],['盘子','osara','おさら','生活'],['切','kirimasu','きります','动词'],['走路','arukimasu','あるきます','动词'],
 ['花火大会','hanabi taikai','はなびたいかい','活动'],['活动','ibento','イベント','活动'],['食物','tabemono','たべもの','食物'],['八月','hachigatsu','はちがつ','时间'],['十月','juugatsu','じゅうがつ','时间'],['十二月','juunigatsu','じゅうにがつ','时间'],['31日','sanjuuichinichi','さんじゅういちにち','时间'],['节日庆典','omatsuri','おまつり','活动'],['舞蹈','dansu','ダンス','活动'],['太鼓','taiko','たいこ','活动'],['比赛','kontesuto','コンテスト','活动'],['社区活动中心','komyuniti sentaa','コミュニティセンター','地点'],['万圣节','harowin','ハロウィン','活动'],['游行','pareedo','パレード','活动'],['圣诞节','kurisumasu','クリスマス','活动'],['除夕','oomisoka','おおみそか','活动'],['倒计时','kauntodaun','カウントダウン','活动'],['灯饰','irumineeshon','イルミネーション','活动']];
 const CUSTOM_KEY='jp-vocab-custom-v1';
-const CUSTOM_IMPORT_KEY='jp-vocab-import-20260727-v1';
-const CUSTOM_20260727=[
-['教导','oshiemasu','おしえます','动词'],['出借','kashimasu','かします','动词'],['橡皮','keshigomu','けしゴム','学习'],['携带/手机','keitai','けいたい','生活'],['剪刀','hasami','はさみ','生活'],['怎么样','ikaga desu ka','いかがですか','基础'],['感谢款待','gochisousama deshita','ごちそうさまでした','寒暄'],['送至','okurimasu','おくります','动词'],['包裹/行李','nimotsu','にもつ','生活'],['筷子','hashi','はし','食物'],['完成/结束','owarimasu','おわります','动词'],['得到','moraimasu','もらいます','动词'],['请进','douzo oagari kudasai','どうぞおあがりください','寒暄'],['给','agemasu','あげます','动词'],['写','kakimasu','かきます','动词'],['牛奶','gyuunyuu','ぎゅうにゅう','食物'],['庭院','niwa','にわ','地点'],['吸','suimasu','すいます','动词'],['信/手纸','tegami','てがみ','生活'],['水果','kudamono','くだもの','食物'],['明白','wakarimasu','わかります','动词'],['今年','kotoshi','ことし','时间'],['步行（て形）','aruite','あるいて','动词'],['船','fune','ふね','出行'],['自行车','jitensha','じてんしゃ','出行'],['特急','tokkyuu','とっきゅう','出行'],['急行','kyuukou','きゅうこう','出行'],['普通','futsuu','ふつう','出行'],['不用谢','dou itashimashite','どういたしまして','寒暄'],['真辛苦啊','taihen desu ne','たいへんですね','寒暄'],['刚才','sakki','さっき','时间'],['今早','kesa','けさ','时间'],['会议','kaigi','かいぎ','职场'],['酒','osake','おさけ','食物'],['前天','ototoi','おととい','时间'],['钱','okane','おかね','购物'],['工作','hatarakimasu','はたらきます','动词'],['学习','benkyou shimasu','べんきょうします','学习'],['昨天','kinou','きのう','时间'],['售货处','uriba','うりば','购物'],['给我看一下','misete kudasai','みせてください','基础'],['教室','kyoushitsu','きょうしつ','学习'],['不同','chigaimasu','ちがいます','动词'],['您的国家/贵国','okuni','おくに','地点'],['一年级','ichinensei','いちねんせい','学习'],['两年级','ninensei','にねんせい','学习'],['商业','bijinesu','ビジネス','学习'],['数学','suugaku','すうがく','学习'],['专业','senkou','せんこう','学习'],['语言','gengo','げんご','语言'],['校园','kyanpasu','キャンパス','学习'],['宿舍','ryou','りょう','生活'],['室友','ruumumeito','ルームメイト','人物'],['桌游','boodo geemu','ボードゲーム','娱乐'],['志愿者','borantia','ボランティア','人物'],['社团','saakuru','サークル','学习'],['国际象棋','chesu','チェス','娱乐'],['加入','hairimasu','はいります','动词']
-];
-const CUSTOM_FIX_BY_CN={};CUSTOM_20260727.forEach(w=>CUSTOM_FIX_BY_CN[w[0]]=w);
+const CUSTOM_IMPORT_KEY='jp-vocab-import-20260918-v1';
+const CUSTOM_20260817=[["出借","kashimasu","かします","动词"],["橡皮","keshigomu","けしゴム","学习"],["携带/手机","keitai","けいたい","生活"],["剪刀","hasami","はさみ","生活"],["怎么样","ikaga desu ka","いかがですか","基础"],["感谢款待","gochisousama deshita","ごちそうさまでした","寒暄"],["送至","okurimasu","おくります","动词"],["包裹/行李","nimotsu","にもつ","生活"],["筷子","hashi","はし","食物"],["完成/结束","owarimasu","おわります","动词"],["得到","moraimasu","もらいます","动词"],["请进","douzo oagari kudasai","どうぞおあがりください","寒暄"],["给","agemasu","あげます","动词"],["写","kakimasu","かきます","动词"],["牛奶","gyuunyuu","ぎゅうにゅう","食物"],["庭院","niwa","にわ","地点"],["吸","suimasu","すいます","动词"],["信/手纸","tegami","てがみ","生活"],["水果","kudamono","くだもの","食物"],["明白","wakarimasu","わかります","动词"],["今年","kotoshi","ことし","时间"],["步行（て形）","aruite","あるいて","动词"],["船","fune","ふね","出行"],["自行车","jitensha","じてんしゃ","出行"],["特急","tokkyuu","とっきゅう","出行"],["急行","kyuukou","きゅうこう","出行"],["普通","futsuu","ふつう","出行"],["不用谢","dou itashimashite","どういたしまして","寒暄"],["真辛苦啊","taihen desu ne","たいへんですね","寒暄"],["刚才","sakki","さっき","时间"],["今早","kesa","けさ","时间"],["会议","kaigi","かいぎ","职场"],["酒","osake","おさけ","食物"],["前天","ototoi","おととい","时间"],["钱","okane","おかね","购物"],["工作","hatarakimasu","はたらきます","动词"],["学习","benkyou shimasu","べんきょうします","学习"],["昨天","kinou","きのう","时间"],["售货处","uriba","うりば","购物"],["给我看一下","misete kudasai","みせてください","基础"],["教室","kyoushitsu","きょうしつ","学习"],["不同","chigaimasu","ちがいます","动词"],["您的国家/贵国","okuni","おくに","地点"],["一年级","ichinensei","いちねんせい","学习"],["两年级","ninensei","にねんせい","学习"],["商业","bijinesu","ビジネス","学习"],["数学","suugaku","すうがく","学习"],["专业","senkou","せんこう","学习"],["语言","gengo","げんご","语言"],["校园","kyanpasu","キャンパス","学习"],["宿舍","ryou","りょう","生活"],["室友","ruumumeito","ルームメイト","人物"],["桌游","boodo geemu","ボードゲーム","娱乐"],["志愿者","borantia","ボランティア","人物"],["社团","saakuru","サークル","学习"],["国际象棋","chesu","チェス","娱乐"],["加入","hairimasu","はいります","动词"],["游泳","suiei","すいえい","运动"],["大会／比赛","taikai","たいかい","活动"],["健身房","jimu","ジム","运动"],["蛋白棒","purotein baa","プロテインバー","食物"],["运动","undou","うんどう","运动"],["多少个","ikutsu","いくつ","数字"],["苹果","ringo","りんご","食物"],["酸奶","youguruto","ヨーグルト","食物"],["健康的","kenkouteki","けんこうてき","健康"],["八个","yattsu","やっつ","数字"],["九个","kokonotsu","ここのつ","数字"],["西蓝花","burokkorii","ブロッコリー","食物"],["橙子","orenji","オレンジ","食物"],["砂糖","satou","さとう","食物"],["汤","suupu","スープ","食物"],["豆浆","tounyuu","とうにゅう","食物"],["油腻","aburakkoi","あぶらっこい","食物"],["不用／不使用","tsukaimasen","つかいません","动词"],["教导","oshiemasu","おしえます","动词"],["训练 / 练习","renshuu","練習（れんしゅう）","学习"],["忙","isogashii","忙しい（いそがしい）","形容词"],["比赛","shiai","試合（しあい）","运动"],["队友","chiimumeito","チームメイト","人物"],["好玩 / 有趣","tanoshii","楽しい（たのしい）","形容词"],["今晚","konya","今夜（こんや）","时间"],["辛苦 / 累","taihen","大変（たいへん）","形容词"],["表演 / 演出","pafoomansu","パフォーマンス","活动"],["跳舞","odorimasu","踊ります（おどります）","动词"],["课程","ressun","レッスン","学习"],["开始","hajimarimasu","始まります（はじまります）","动词"],["博客","burogu","ブログ","娱乐"],["文章","kiji","記事（きじ）","学习"],["谁","dare","誰（だれ）","人物"],["授课 / 上课","jugyou","授業（じゅぎょう）","学习"],["很多","takusan","沢山（たくさん）","基础"],["问题","shitsumon","質問（しつもん）","学习"],["考试","tesuto","テスト","学习"],["快点","hayaku","早く（はやく）","基础"],["星期几","nanyoubi","何曜日（なんようび）","时间"],["问","kikimasu","聞きます（ききます）","动词"],["截止日期","shimekiri","締め切り（しめきり）","时间"],["作业","shukudai","宿題（しゅくだい）","学习"],["项目","purojekuto","プロジェクト","学习"],["然后","soshite","そして","基础"],["方便","benri","便利（べんり）","形容词"],["父亲","otousan","お父さん（おとうさん）","人物"],["母亲","okaasan","お母さん（おかあさん）","人物"],["打电话","(denwa o) kakemasu","（電話を）かけます","动词"],["学习 / 习得","naraimasu","習います（ならいます）","动词"],["向王先生借书","Ou-san ni hon o karimasu","王さんに本を借ります（おうさんにほんをかります）","学习"],["借 / 借用","karimasu","借ります（かります）","动词"],["袜子","kutsushita","靴下（くつした）","衣物"],["牛仔裤","jiinzu","ジーンズ","衣物"],["毛衣","seetaa","セーター","衣物"],["帽衫","paakaa","パーカー","衣物"],["围巾","mafuraa","マフラー","衣物"],["左","hidari","左（ひだり）","地点"],["右","migi","右（みぎ）","地点"],["男士","menzu","メンズ","衣物"],["女士","rediisu","レディース","衣物"],["紫色","murasaki","紫（むらさき）","颜色"],["首先","mazu","まず","基础"],["破旧","boroboro","ボロボロ","形容词"],["软绵绵","fuwafuwa","ふわふわ","形容词"],["闪光","kirakira","キラキラ","形容词"],["上 / 进","agarimasu","上がります（あがります）","动词"],["饰品","akusesarii","アクセサリー","衣物"],["架子","tana","棚（たな）","生活"],["在上面","ue","上（うえ）","地点"],["收银","reji","レジ","购物"],["店员","ten'in","店員（てんいん）","职业"],["积分卡","pointokaado","ポイントカード","购物"],["下次","kondou","今度（こんど）","时间"],["网络","netto","ネット","生活"],["找（一起找吧）","sagashimashou","探しましょう（さがしましょう）","动词"],["一号 / 一日","tsuitachi","一日（ついたち）","时间"],["信用卡","kurejittokaado","クレジットカード","购物"],["大厅","robii","ロビー","地点"],["入住 / 退房","chekkuin / chekkuauto","チェックイン / チェックアウト","出行"],["旁边","tonari","隣（となり）","地点"],["钥匙","kagi","鍵（かぎ）","生活"],["房间","heya","部屋（へや）","生活"],["密码","pasuwaado","パスワード","生活"],["咖啡机","koohiimeekaa","コーヒーメーカー","生活"],["吐司","toosuto","トースト","食物"],["前面","mae","前（まえ）","地点"],["毛巾","taoru","タオル","生活"],["免费","muryou","無料（むりょう）","购物"],["后面","ushiro","後ろ（うしろ）","地点"],["住 / 住宿","tomari","泊まり（とまり）","出行"],["洋葱","tamanegi","玉ねぎ（たまねぎ）","食物"],["胡萝卜","ninjin","人参（にんじん）","食物"],["炖牛肉","biifushichuu","ビーフシチュー","食物"],["肚子","onaka","お腹（おなか）","健康"],["篮子","kago","籠（かご）","购物"],["土豆","jagaimo","じゃがいも","食物"],["入口","iriguchi","入口（いりぐち）","地点"],["黑胡椒","kurokoshou","黒胡椒（くろこしょう）","食物"],["下面","shita","下（した）","地点"],["牛肉","gyuuniku","牛肉（ぎゅうにく）","食物"],["克数 / 克","guramu","グラム","数字"],["正好 / 马上","sugu","直ぐ（すぐ）","时间"],["黄油","bataa","バター","食物"],["面粉","komugiko","小麦粉（こむぎこ）","食物"],["里面（深处）","oku","奥（おく）","地点"],["最……","ichiban","一番（いちばん）","基础"],["抽屉","hikidashi","引き出し（ひきだし）","生活"],["碗 / 茶碗","chawan","茶碗（ちゃわん）","生活"],["里面（通用）","naka","中（なか）","地点"],["低的","hikui","低い（ひくい）","形容词"],["冷（触感） / 凉","tsumetai","冷たい（つめたい）","形容词"],["热心 / 亲切","shinsetsu","親切（しんせつ）","形容词"],["足够了 / 很好","kekkou desu","結構です（けっこうです）","基础"],["计划","yotei","予定（よてい）","自定义"],["大家","minna","皆（みんな）","自定义"],["新宿","shinjuku","新宿（しんじゅく）","自定义"],["在（时间助词）","ni","に","自定义"],["离开 / 出来","demasu","出ます（でます）","自定义"],["在（人/动物）","imasu","います","自定义"],["到达","tsukimasu","着きます（つきます）","自定义"],["消息","messeeji","メッセージ","自定义"],["发送","okuri","送り（おくり）","自定义"],["我们","watashitachi","私たち（わたしたち）","自定义"],["他们","karera / tachi","彼ら（かれら） / 達（たち）","自定义"],["终点站 / 航站楼","taaminaru","ターミナル","自定义"],["迟到","okuremasu","遅れます（おくれます）","自定义"],["快点 / 赶快","isogimasu","急ぎます（いそぎます）","自定义"],["西门","nishiguchi","西口（にしぐち）","自定义"],["慢","osoi","遅い（おそい）","自定义"],["累","tsukaremasu","疲れます（つかれます）","自定义"],["状态 / 身体状况","choushi","調子（ちょうし）","自定义"],["知道","shitteimasu","知っています（しっています）","自定义"],["我丈夫 / 我先生","otto","夫（おっと）","自定义"],["我妻子 / 我老婆","tsuma","妻（つま）","自定义"],["停车场","chuushajou","駐車場（ちゅうしゃじょう）","自定义"],["加入 / 放入","ireru","入れる（いれる）","自定义"],["诊室 / 门诊室","shinsatsushitsu","診察室（しんさつしつ）","自定义"],["快餐","faasutofuudo","ファーストフード","自定义"],["猫","neko","猫（ねこ）","自定义"],["狗","inu","犬（いぬ）","自定义"],["受欢迎 / 人气","ninki","人気（にんき）","自定义"],["松饼 / 煎饼","pankeeki","パンケーキ","自定义"],["仓鼠","hamusutaa","ハムスター","自定义"],["变色龙","kamereon","カメレオン","自定义"],["棕色 / 茶色","chaiiro","茶色（ちゃいろ）","自定义"],["眼睛","me","目（め）","自定义"],["耳朵","mimi","耳（みみ）","自定义"],["嘴","kuchi","口（くち）","自定义"],["鼻子","hana","鼻（はな）","自定义"],["一只","ippiki","一匹（いっぴき）","自定义"],["两只","nihiki","二匹（にひき）","自定义"],["三只","sanbiki","三匹（さんびき）","自定义"],["四只","yonhiki","四匹（よんひき）","自定义"],["几只","nanbiki","何匹（なんびき）","自定义"],["西红柿","tomato","トマト","自定义"],["多彩的 / 五颜六色的","karafuru","カラフル","自定义"],["角落","sumi","隅（すみ）","自定义"],["宝宝","akachan","赤ちゃん（あかちゃん）","自定义"],["鸟","tori","鳥（とり）","自定义"],["脚 / 腿","ashi","足（あし）","自定义"],["长颈鹿","kirin","キリン","自定义"],["棉花糖","wataame","綿飴（わたあめ）","自定义"],["长椅","benchi","ベンチ","自定义"],["猴子","saru","猿（さる）","自定义"],["山羊","yagi","山羊（やぎ）","自定义"],["兔子","usagi","兎（うさぎ）","自定义"],["冰沙 / 果昔","sumuujii","スムージー","自定义"],["栅栏","fensu","フェンス","自定义"],["洗手液 / 免洗凝胶","handojeru","ハンドジェル","自定义"],["摸 / 抚摸","nademasu","撫でます（なでます）","自定义"],["粉色","pinku","ピンク","自定义"],["磁铁","magunetto","マグネット","自定义"],["钥匙圈 / 钥匙扣","kiihorudaa","キーホルダー","自定义"],["毛绒娃娃 / 玩偶","nuigurumi","ぬいぐるみ","自定义"],["礼品店","gifutoshOppu","ギフトショップ","自定义"],["横滨","yokohama","横浜（よこはま）","自定义"],["我父母 / 父母","ryoushin","両親（りょうしん）","自定义"],["文化","bunka","文化（ぶんか）","自定义"],["去年","kyonen","去年（きょねん）","自定义"],["上个月","sengetsu","先月（せんげつ）","自定义"],["上周","senshuu","先週（せんしゅう）","自定义"],["歌舞伎","kabuki","歌舞伎（かぶき）","自定义"],["银座","ginza","銀座（ぎんざ）","自定义"],["名古屋","nagoya","名古屋（なごや）","自定义"],["千叶","chiba","千葉（ちば）","自定义"],["第一次","hajimete","初めて（はじめて）","自定义"],["水族馆","suizokukan","水族館（すいぞくかん）","自定义"],["城堡 / 城","shiro","城（しろ）","自定义"],["天气","tenki","天気（てんき）","自定义"],["饿","sukimasu","すきます","自定义"],["显示器","monitaa","モニター","自定义"],["更好的","motto ii","もっといい","自定义"],["购物","kaimono","買い物（かいもの）","自定义"],["英寸","inchi","インチ","自定义"],["键盘","kiiboodo","キーボード","自定义"],["鼠标","mausu","マウス","自定义"],["灰色","guree","グレー","自定义"],["电线 / 线缆","keeburu","ケーブル","自定义"],["无线","waiyaresu","ワイヤレス","自定义"],["音响 / 扬声器","supiikaa","スピーカー","自定义"],["塑料袋","rejibukuro","レジ袋（れじぶくろ）","自定义"],["收据 / 小票","reshiito","レシート","自定义"],["电池","denchi","電池（でんち）","自定义"],["重","omoi","重い（おもい）","自定义"],["轻便的 / 轻的","karui","軽い（かるい）","自定义"],["找到（了）","mitsukemashita","見つけました（みつけました）","自定义"],["发光的 / 发光","hikarimasu","光ります（ひかります）","自定义"],["艺术家 / 艺人","aatisuto","アーティスト","自定义"],["想……","-tai","〜たい","自定义"],["舞台","suteeji","ステージ","自定义"],["正中间","mannaka","真ん中（まんなか）","自定义"],["座位","seki","席（せき）","自定义"],["外面","soto","外（そと）","自定义"],["手","te","手（て）","自定义"],["洗","araimasu","洗います（あらいます）","自定义"],["返回 / 回来","modorimasu","戻ります（もどります）","自定义"],["笔","pen","ペン","自定义"],["签名","sain","サイン","自定义"],["周边 / 商品","guzzu","グッズ","自定义"],["累了","tsukaremashita","疲れました（つかれました）","自定义"],["排队","narabimasu","並びます（ならびます）","自定义"],["一会儿见","mata atode","また後で（またあとで）","自定义"],["四月","shigatsu","四月（しがつ）","自定义"],["北海道","hokkaidou","北海道（ほっかいどう）","自定义"],["开花","sakimasu","咲きます（さきます）","自定义"],["西瓜","suika","西瓜（すいか）","自定义"],["夜晚","yoru","夜（よる）","自定义"],["儿子","musuko","息子（むすこ）","自定义"],["女儿","musume","娘（むすめ）","自定义"],["不热","atsukunai","暑くない / 熱くない（あつくない）","自定义"],["不冷","samukunai","寒くない（さむくない）","自定义"],["打开（电器/开关）","tsukemasu","点けます（つけます）","自定义"],["红薯","satsumaimo","さつまいも","自定义"],["暖气","danbou","暖房（だんぼう）","自定义"],["不太 / 不怎么","amari","余り（あまり）","自定义"],["火锅","nabe","鍋（なべ）","自定义"],["滑冰","sukeeto","スケート","自定义"],["滑雪","sukii","スキー","自定义"],["单板滑雪","sunoboo","スノボー","自定义"],["不暗","kurakunai","暗くない（くらくない）","自定义"],["不好玩 / 无趣","tanoshikunai","楽しくない（たのしくない）","自定义"],["暗","kurai","暗い（くらい）","自定义"],["橘子 / 蜜柑","mikan","みかん","自定义"]];
+const CUSTOM_FIX_BY_CN={};CUSTOM_20260817.forEach(w=>CUSTOM_FIX_BY_CN[w[0]]=w);
 Object.assign(CUSTOM_FIX_BY_CN,{'携带':CUSTOM_FIX_BY_CN['携带/手机'],'包裹':CUSTOM_FIX_BY_CN['包裹/行李'],'完成结束':CUSTOM_FIX_BY_CN['完成/结束'],'手纸':CUSTOM_FIX_BY_CN['信/手纸'],'步行':CUSTOM_FIX_BY_CN['步行（て形）'],'辛苦了':CUSTOM_FIX_BY_CN['真辛苦啊'],'祖国':CUSTOM_FIX_BY_CN['您的国家/贵国'],'服务社':CUSTOM_FIX_BY_CN['社团']});
 const WRONG_KEY='jp-vocab-wrong-v1';
 const LEARNED_CUSTOM_KEY='jp-vocab-learned-custom-v1';
-function customWords(){try{let x=JSON.parse(localStorage.getItem(CUSTOM_KEY)||'[]');x=Array.isArray(x)?x.filter(w=>Array.isArray(w)&&w.length===4):[];x=x.map(w=>CUSTOM_FIX_BY_CN[String(w[0]).trim()]||w);if(!localStorage.getItem(CUSTOM_IMPORT_KEY)){let seen=new Set(x.map(w=>w[0]));CUSTOM_20260727.forEach(w=>{if(!seen.has(w[0]))x.push(w)});localStorage.setItem(CUSTOM_IMPORT_KEY,'1')}let unique=[];let keys=new Set();x.forEach(w=>{let k=w[0]+'|'+w[1];if(!keys.has(k)){keys.add(k);unique.push(w)}});localStorage.setItem(CUSTOM_KEY,JSON.stringify(unique));return unique}catch{return CUSTOM_20260727.slice()}}
+function customWords(){try{let x=JSON.parse(localStorage.getItem(CUSTOM_KEY)||'[]');x=Array.isArray(x)?x.filter(w=>Array.isArray(w)&&w.length===4):[];x=x.map(w=>CUSTOM_FIX_BY_CN[String(w[0]).trim()]||w);if(!localStorage.getItem(CUSTOM_IMPORT_KEY)){let seen=new Set(x.map(wordKey));CUSTOM_20260817.forEach(w=>{if(!seen.has(wordKey(w))){x.push(w);seen.add(wordKey(w))}});localStorage.setItem(CUSTOM_IMPORT_KEY,'1')}let unique=[];let keys=new Set();x.forEach(w=>{let k=wordKey(w);if(!keys.has(k)){keys.add(k);unique.push(w)}});localStorage.setItem(CUSTOM_KEY,JSON.stringify(unique));return unique}catch{return CUSTOM_20260817.slice()}}
 function allWords(){return V.concat(customWords())}
 function saveCustom(items){localStorage.setItem(CUSTOM_KEY,JSON.stringify(items))}
 function wrongWords(){try{let x=JSON.parse(localStorage.getItem(WRONG_KEY)||'[]');return Array.isArray(x)?x.filter(w=>Array.isArray(w)&&w.length===4):[]}catch{return[]}}
 function wordKey(w){return w[0]+'|'+w[1]}
-function learnedCustomKeys(){try{let x=JSON.parse(localStorage.getItem(LEARNED_CUSTOM_KEY)||'[]');return new Set(Array.isArray(x)?x.map(String):[])}catch{return new Set()}}
+function learnedCustomKeys(){try{let x=JSON.parse(localStorage.getItem(LEARNED_CUSTOM_KEY)||'[]');return new Set(Array.isArray(x)?x.map(String).map(k=>{const fixed=CUSTOM_FIX_BY_CN[k.split('|')[0]];return fixed?wordKey(fixed):k}):[])}catch{return new Set()}}
 function saveLearnedCustom(keys){try{localStorage.setItem(LEARNED_CUSTOM_KEY,JSON.stringify([...keys]))}catch{}}
 function activeCustomWords(){let learned=learnedCustomKeys();return customWords().filter(w=>!learned.has(wordKey(w)))}
 function setCustomLearned(w,isLearned){let keys=learnedCustomKeys(),key=wordKey(w);isLearned?keys.add(key):keys.delete(key);saveLearnedCustom(keys)}
@@ -60,26 +64,213 @@ function addWrong(w){let list=wrongWords();if(!list.some(x=>wordKey(x)===wordKey
 function removeWrong(w){saveWrong(wrongWords().filter(x=>wordKey(x)!==wordKey(w)))}
 function pickWord(category,fallback){let pool=allWords().filter(w=>w[3]===category);return (pool.length?pool:allWords()).find(w=>w[1]===fallback)||(pool.length?pool[0]:allWords()[0])}
 function exampleFor(w){let jp=w[2]||w[1],food=pickWord('食物','asagohan'),place=pickWord('地点','machi'),friend=pickWord('人物','tomodachi'),r=w[1],f=food[1],p=place[1],t=friend[1];let templates={食物:{jp:'これは '+jp+'です。'+food[2]+'は おいしいです。',roma:'kore wa '+r+' desu. '+f+' wa oishii desu.',cn:'这是'+w[0]+'。'+food[0]+'很好吃。'},地点:{jp:friend[2]+'と '+jp+'へ いきます。',roma:t+' to '+r+' e ikimasu.',cn:'和'+friend[0]+'去'+w[0]+'。'},出行:{jp:'わたしは '+jp+'で '+place[2]+'へ いきます。',roma:'watashi wa '+r+' de '+p+' e ikimasu.',cn:'我坐'+w[0]+'去'+place[0]+'。'},时间:{jp:'きょうは '+jp+'です。',roma:'kyou wa '+r+' desu.',cn:'今天是'+w[0]+'。'},天气:{jp:'きょうは '+jp+'です。',roma:'kyou wa '+r+' desu.',cn:'今天是'+w[0]+'。'},颜色:{jp:'この '+jp+'ものは きれいです。',roma:'kono '+r+' mono wa kirei desu.',cn:'这个'+w[0]+'的东西很漂亮。'},衣物:{jp:'この '+jp+'は きれいです。',roma:'kono '+r+' wa kirei desu.',cn:'这件'+w[0]+'很漂亮。'},运动:{jp:friend[2]+'と '+jp+'を します。',roma:t+' to '+r+' o shimasu.',cn:'和'+friend[0]+'一起做'+w[0]+'。'},娱乐:{jp:friend[2]+'と '+jp+'を みます。',roma:t+' to '+r+' o mimasu.',cn:'和'+friend[0]+'一起看'+w[0]+'。'},动词:{jp:'わたしは '+jp+'。',roma:'watashi wa '+r+'.',cn:'我'+w[0]+'。'},活动:{jp:friend[2]+'と '+jp+'へ いきます。',roma:t+' to '+r+' e ikimasu.',cn:'和'+friend[0]+'去'+w[0]+'。'}};return templates[w[3]]||{jp:'これは '+jp+'です。',roma:'kore wa '+r+' desu.',cn:'这是'+w[0]+'。'}}
-function speakJapanese(text){if(!('speechSynthesis' in window))return;window.speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=.82;window.speechSynthesis.speak(u)}
-let S={mode:'cnjp',cat:'全部',count:20,q:[],i:0,res:[],reading:'roma'};const $=s=>document.querySelector(s);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const shuffle=a=>a.slice().sort(()=>Math.random()-.5);const cats=()=>['全部',...new Set(allWords().map(x=>x[3]))];
-function setup(){const a=$('#app'),words=allWords(),custom=customWords(),activeCustom=activeCustomWords(),learnedCount=custom.length-activeCustom.length,wrong=wrongWords();if(!cats().includes(S.cat))S.cat='全部';a.innerHTML=`<h2>开始复习</h2><p>词库共 <b>${words.length}</b> 个词；你新增了 <b>${custom.length}</b> 个，其中待专项 <b>${activeCustom.length}</b> 个、已学会 <b>${learnedCount}</b> 个；错题本有 <b>${wrong.length}</b> 个。</p><div class="tabs"><button class="tab ${S.mode==='cnjp'?'active':''}" data-m="cnjp">中文 → 日语</button><button class="tab ${S.mode==='jpcn'?'active':''}" data-m="jpcn">日语 → 中文</button></div><div class="category">选择主题</div><div class="tabs">${cats().map(c=>`<button class="tag ${S.cat===c?'active':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div><div class="settings"><label>题量<input id="n" type="number" min="1" max="${words.length}" value="${S.count}"></label><label>显示形式<select id="reading"><option value="roma">罗马音</option><option value="kana">假名</option></select></label></div><div class="actions"><button class="primary" id="go">开始测试</button><button id="customPractice" ${activeCustom.length?'':'disabled'}>新增词汇专项（${activeCustom.length}）</button><button id="wrongPractice" ${wrong.length?'':'disabled'}>错题专项（${wrong.length}）</button><button id="library">词汇库查询</button><button id="wrongBook">错题本</button><button id="manage">＋ 新增单词</button></div>`;a.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{S.mode=b.dataset.m;setup()});a.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{S.cat=b.dataset.c;setup()});$('#manage').onclick=manage;$('#library').onclick=showLibrary;$('#wrongBook').onclick=showWrongBook;$('#customPractice').onclick=()=>{startQueue(activeCustomWords(),$('#reading').value)};$('#wrongPractice').onclick=()=>{startQueue(wrongWords(),$('#reading').value)};$('#go').onclick=()=>{S.count=Math.max(1,+$('#n').value||20);S.reading=$('#reading').value;startQueue(words.filter(x=>S.cat==='全部'||x[3]===S.cat).slice(0),S.reading,S.count)}}
+function speechText(w){let s=String(w[2]||w[1]||'').trim(),m=s.match(/^.+?（([ぁ-んァ-ンー]+)）$/);return m?m[1]:s.replace(/[（）]/g,'')}
+function speakJapanese(text){if(!('speechSynthesis' in window))return false;let engine=window.speechSynthesis;engine.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=.82;try{let voices=engine.getVoices(),voice=voices.find(v=>String(v.lang).toLowerCase().startsWith('ja'));if(voice)u.voice=voice}catch{}let status=document.querySelector('#speechStatus');u.onstart=()=>{if(status)status.textContent='正在播放日语发音'};u.onend=()=>{if(status)status.textContent='可点击按钮再次播放'};u.onerror=()=>{if(status)status.textContent='自动播放被拦截，请点“播放发音”'};engine.speak(u);return true}
+const MODE_KEY='jp-vocab-mode-v1';function savedMode(){try{return localStorage.getItem(MODE_KEY)==='jpcn'?'jpcn':'cnjp'}catch{return 'cnjp'}}let S={mode:savedMode(),cat:'全部',count:20,q:[],i:0,res:[],reading:'roma'};const $=s=>document.querySelector(s);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const shuffle=a=>a.slice().sort(()=>Math.random()-.5);const cats=()=>['全部',...new Set(allWords().map(x=>x[3]))];
+function setup(){const a=$('#app'),words=allWords(),custom=customWords(),activeCustom=activeCustomWords(),learnedCount=custom.length-activeCustom.length,wrong=wrongWords();if(!cats().includes(S.cat))S.cat='全部';a.innerHTML=`<h2>开始复习</h2><p>词库共 <b>${words.length}</b> 个词；你新增了 <b>${custom.length}</b> 个，其中待专项 <b>${activeCustom.length}</b> 个、已学会 <b>${learnedCount}</b> 个；错题本有 <b>${wrong.length}</b> 个。</p><div class="tabs"><button class="tab ${S.mode==='cnjp'?'active':''}" data-m="cnjp">中文 → 日语</button><button class="tab ${S.mode==='jpcn'?'active':''}" data-m="jpcn">日语 → 中文</button></div><div class="category">选择主题</div><div class="tabs">${cats().map(c=>`<button class="tag ${S.cat===c?'active':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div><div class="settings"><label>题量<input id="n" type="number" min="1" max="${words.length}" value="${S.count}"></label><label>显示形式<select id="reading"><option value="roma">罗马音</option><option value="kana">假名</option></select></label></div><div class="actions"><button class="primary" id="go">开始测试</button><button id="customPractice" ${activeCustom.length?'':'disabled'}>新增词汇专项（${activeCustom.length}）</button><button id="wrongPractice" ${wrong.length?'':'disabled'}>错题专项（${wrong.length}）</button><button id="library">词汇库查询</button><button id="wrongBook">错题本</button><button id="manage">＋ 新增单词</button></div>`;a.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{S.mode=b.dataset.m;try{localStorage.setItem(MODE_KEY,S.mode)}catch{}setup()});a.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{S.cat=b.dataset.c;setup()});$('#manage').onclick=manage;$('#library').onclick=showLibrary;$('#wrongBook').onclick=showWrongBook;$('#customPractice').onclick=()=>{startQueue(activeCustomWords(),$('#reading').value)};$('#wrongPractice').onclick=()=>{startQueue(wrongWords(),$('#reading').value)};$('#go').onclick=()=>{S.count=Math.max(1,+$('#n').value||20);S.reading=$('#reading').value;startQueue(words.filter(x=>S.cat==='全部'||x[3]===S.cat).slice(0),S.reading,S.count)}}
 function startQueue(words,reading,count){if(!words.length)return;S.reading=reading||S.reading;S.q=shuffle(words).slice(0,count||words.length);S.i=0;S.res=[];question()}
 function showLibrary(){const a=$('#app'),custom=customWords(),customSet=new Set(custom.map(wordKey)),learnedSet=learnedCustomKeys();a.innerHTML='<h2>词汇库查询</h2><p>查看并搜索全部基础词汇和你后来新增的词汇；标记为已学会的词仍会保留在这里。</p><div class="library-tools"><input id="libSearch" type="text" placeholder="搜索中文、罗马音或假名"><select id="libCat"><option value="全部">全部主题</option>'+cats().slice(1).map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('')+'</select><select id="libSource"><option value="全部">全部来源</option><option value="基础">基础词库</option><option value="新增">我新增的</option></select></div><div id="libCount" class="form-note"></div><div id="libList" class="word-grid"></div><div class="actions"><button class="primary" id="practiceShown">复习当前结果</button><button id="home">返回首页</button></div>';let visible=[];function renderLibrary(){let q=$('#libSearch').value.trim().toLowerCase(),cat=$('#libCat').value,source=$('#libSource').value;visible=allWords().filter(w=>{let isCustom=customSet.has(wordKey(w));return(!q||(w[0]+' '+w[1]+' '+w[2]).toLowerCase().includes(q))&&(cat==='全部'||w[3]===cat)&&(source==='全部'||(source==='新增'&&isCustom)||(source==='基础'&&!isCustom))});$('#libCount').textContent='找到 '+visible.length+' 个词';$('#libList').innerHTML=visible.map(w=>{let key=wordKey(w),isCustom=customSet.has(key),isLearned=isCustom&&learnedSet.has(key),badge=isCustom?(isLearned?'<span class="badge learned">已学会</span>':'<span class="badge">新增</span>'):'';return '<div class="word-card"><div class="word-cn">'+esc(w[0])+badge+'</div><div class="word-jp">'+esc(w[2]||'—')+'</div><div>'+esc(w[1])+'</div><div class="word-meta">'+esc(w[3])+'</div></div>'}).join('')||'<p>没有找到匹配词汇。</p>';$('#practiceShown').disabled=!visible.length}$('#libSearch').oninput=renderLibrary;$('#libCat').onchange=renderLibrary;$('#libSource').onchange=renderLibrary;$('#practiceShown').onclick=()=>startQueue(visible,S.reading);$('#home').onclick=setup;renderLibrary()}
 function showWrongBook(){const list=wrongWords(),a=$('#app');a.innerHTML=`<h2>错题本</h2><p>${list.length?'答错的词会自动收进这里；在测试中答对后会自动移除。':'暂无错题，继续保持！'}</p>${list.map((w,i)=>`<div class="miss"><span><b>${esc(w[0])}</b>　${esc(w[1])}${w[2]?'　'+esc(w[2]):''}</span><button data-forget="${i}">移除</button></div>`).join('')}<div class="actions"><button class="primary" id="practice" ${list.length?'':'disabled'}>开始错题专项</button><button id="home">返回首页</button></div>`;$('#home').onclick=setup;$('#practice').onclick=()=>{S.q=shuffle(wrongWords());S.i=0;S.res=[];question()};a.querySelectorAll('[data-forget]').forEach(b=>b.onclick=()=>{let x=wrongWords();x.splice(+b.dataset.forget,1);saveWrong(x);showWrongBook()})}
 function manage(){const list=customWords(),learned=learnedCustomKeys(),a=$('#app');a.innerHTML=`<h2>新增单词</h2><p>新增内容会保存在这台设备的浏览器中。把单词标记为“已学会”后，它仍保留在总词汇库和普通练习中，但不会再出现在新增词汇专项里。</p><div class="settings"><label>中文<input id="cn" type="text" placeholder="例如：樱花"></label><label>罗马音<input id="roma" type="text" placeholder="例如：sakura"></label><label>假名（可留空）<input id="kana" type="text" placeholder="例如：さくら"></label><label>主题（可留空）<input id="cat" type="text" placeholder="例如：季节"></label></div><div class="actions"><button class="primary" id="addOne">保存这一词</button><button id="home">返回</button></div><hr class="divider"><h3>批量粘贴</h3><p class="form-note">每行一个词，格式：中文 | 罗马音 | 假名 | 主题。假名和主题可不填。</p><textarea id="batch" rows="6" placeholder="樱花 | sakura | さくら | 季节\n预订 | yoyaku | よやく | 出行"></textarea><div class="actions" style="margin-top:12px"><button class="primary" id="addBatch">导入这些词</button></div>${list.length?`<hr class="divider"><h3>我新增的单词（${list.length}）</h3>${list.map((w,i)=>{let isLearned=learned.has(wordKey(w));return `<div class="miss"><span><b>${esc(w[0])}</b>${isLearned?'<span class="badge learned">已学会</span>':'<span class="badge">待专项</span>'}<br>${esc(w[1])}${w[2]?'　'+esc(w[2]):''}</span><span class="inline-actions">${isLearned?`<button data-restore="${i}">恢复到专项</button>`:`<button class="primary" data-learned="${i}">标记已学会</button>`}<button data-del="${i}">删除</button></span></div>`}).join('')}`:''}`;$('#home').onclick=setup;$('#addOne').onclick=()=>addWords([[ $('#cn').value,$('#roma').value,$('#kana').value,$('#cat').value ]]);$('#addBatch').onclick=()=>{let rows=$('#batch').value.split(/\r?\n/).filter(x=>x.trim()).map(x=>x.split('|').map(y=>y.trim()));addWords(rows)};a.querySelectorAll('[data-learned]').forEach(b=>b.onclick=()=>{setCustomLearned(list[+b.dataset.learned],true);manage()});a.querySelectorAll('[data-restore]').forEach(b=>b.onclick=()=>{setCustomLearned(list[+b.dataset.restore],false);manage()});a.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{let i=+b.dataset.del,x=customWords(),removed=x[i];x.splice(i,1);saveCustom(x);if(removed)setCustomLearned(removed,false);manage()})}
 function addWords(rows){let existing=customWords(),seen=new Set(allWords().map(w=>w[0]+'|'+w[1])),valid=[];for(let r of rows){let [cn,roma,kana='',cat='自定义']=r.map(x=>String(x||'').trim());if(!cn||!roma)continue;let key=cn+'|'+roma;if(!seen.has(key)){valid.push([cn,roma,kana,cat||'自定义']);seen.add(key)}}if(!valid.length){alert('没有可保存的新词。请至少填写“中文”和“罗马音”，且不要与现有词重复。');return}saveCustom(existing.concat(valid));let learned=learnedCustomKeys();valid.forEach(w=>learned.delete(wordKey(w)));saveLearnedCustom(learned);alert(`已保存 ${valid.length} 个新词。`);setup()}
 function question(){
-  let x=S.q[S.i],jp=S.reading==='kana'?x[2]:x[1],spoken=x[2]||x[1],is=S.mode==='cnjp',prompt=is?x[0]:jp,ans=is?jp:x[0],example=exampleFor(x),a=$('#app');
+  let x=S.q[S.i],jp=S.reading==='kana'?x[2]:x[1],spoken=speechText(x),is=S.mode==='cnjp',prompt=is?x[0]:jp,ans=is?jp:x[0],example=exampleFor(x),a=$('#app');
   a.innerHTML='<div class="progress"><span>第 '+(S.i+1)+' / '+S.q.length+' 题</span><span>答对 '+S.res.filter(function(r){return r.ok}).length+' 题</span></div>'+
     '<div class="bar"><i style="width:'+(S.i/S.q.length*100)+'%"></i></div><div class="prompt-label">'+(is?'中文':'日语读音')+'</div><div class="prompt">'+esc(prompt)+'</div>'+
-    (!is?'<div class="actions" style="margin:0 0 12px"><button id="speak">🔊 再听一次</button></div>':'')+
+    (!is?'<div class="actions" style="margin:0 0 12px"><button class="primary" id="speak">🔊 播放发音</button><span class="form-note" id="speechStatus">将自动播放；无声时请点按钮</span></div>':'')+
     '<div class="reveal"><div class="rlabel">例句（日语）</div><div class="ranswer">'+esc(example.jp)+'</div><div class="rlabel" style="margin-top:12px">罗马音</div><div>'+esc(example.roma)+'</div><div class="rlabel" style="margin-top:12px">中文</div><div>'+esc(example.cn)+'</div></div><div class="hint">先在心里作答，再显示答案；不强制拼写。</div><input class="answer" id="input" placeholder="可在这里写下你的答案" autofocus><div id="reveal" class="hidden"></div><div class="actions" style="margin-top:16px"><button class="primary" id="show">显示答案（Enter）</button></div>';
-  if(!is){$('#speak').onclick=function(){speakJapanese(spoken)};setTimeout(function(){speakJapanese(spoken)},250)}
+  if(!is){$('#speak').onclick=function(){speakJapanese(spoken)};speakJapanese(spoken)}
   function reveal(){var hint=is&&S.reading==='roma'?' <span class="hint">（'+esc(x[2])+'）</span>':'';$('#reveal').className='reveal';$('#reveal').innerHTML='正确答案：<b>'+esc(ans)+'</b>'+hint}
-  $('#show').onclick=function(){reveal();$('.actions').innerHTML='<button id="yes">✓ 我答对了</button><button id="no">✗ 我答错了</button>';$('#yes').onclick=function(){mark(true)};$('#no').onclick=function(){mark(false)}};
+  $('#show').onclick=function(){reveal();$('#show').parentElement.innerHTML='<button id="yes">✓ 我答对了</button><button id="no">✗ 我答错了</button>';$('#yes').onclick=function(){mark(true)};$('#no').onclick=function(){mark(false)}};
   $('#input').onkeydown=function(e){if(e.key==='Enter'){var btn=$('#show');if(btn)btn.click()}};$('#input').focus()
 }
 function mark(ok){let current=S.q[S.i];if(ok)removeWrong(current);else addWrong(current);S.res.push({x:current,ok});S.i++;S.i<S.q.length?question():result()}
 function result(){let good=S.res.filter(r=>r.ok).length,miss=S.res.filter(r=>!r.ok);$('#app').innerHTML=`<h2>本轮完成</h2><div class="prompt ${good/S.res.length>=.8?'good':'bad'}">${good} / ${S.res.length}</div><p>正确率 ${Math.round(good/S.res.length*100)}%</p>${miss.length?`<h3>需要再复习（${miss.length}）</h3>${miss.map(r=>`<div class="miss"><b>${r.x[0]}</b><span>${S.reading==='kana'?r.x[2]:r.x[1]}</span></div>`).join('')}`:'<p class="good">全部答对，太好了！</p>'}<div class="actions"><button id="again">${miss.length?'只复习错题':'重新开始'}</button><button class="primary" id="home">返回设置</button></div>`;$('#home').onclick=setup;$('#again').onclick=()=>{if(!miss.length)return setup();S.q=shuffle(miss.map(r=>r.x));S.i=0;S.res=[];question()}}
+// Apply this snapshot once; later learning changes remain device-local.
+try{if(!localStorage.getItem('jp-vocab-progress-20260918-v1')){saveLearnedCustom(new Set([...learnedCustomKeys(),...["出借|kashimasu","橡皮|keshigomu","携带/手机|keitai","剪刀|hasami","怎么样|ikaga desu ka","感谢款待|gochisousama deshita","送至|okurimasu","包裹/行李|nimotsu","筷子|hashi","完成/结束|owarimasu","得到|moraimasu","请进|douzo oagari kudasai","给|agemasu","写|kakimasu","牛奶|gyuunyuu","庭院|niwa","吸|suimasu","信/手纸|tegami","水果|kudamono","明白|wakarimasu","步行（て形）|aruite","船|fune","自行车|jitensha","特急|tokkyuu","急行|kyuukou","普通|futsuu","真辛苦啊|taihen desu ne","会议|kaigi","酒|osake","钱|okane","工作|hatarakimasu","学习|benkyou shimasu","昨天|kinou","售货处|uriba","教室|kyoushitsu","不同|chigaimasu","您的国家/贵国|okuni","一年级|ichinensei","两年级|ninensei","商业|bijinesu","数学|suugaku","专业|senkou","语言|gengo","校园|kyanpasu","宿舍|ryou","室友|ruumumeito","桌游|boodo geemu","志愿者|borantia","国际象棋|chesu","加入|hairimasu","游泳|suiei","大会／比赛|taikai","健身房|jimu","蛋白棒|purotein bā","运动|undō","多少个|ikutsu","苹果|ringo","酸奶|yōguruto","健康的|kenkōteki","西蓝花|burokkorī","橙子|orenji","砂糖|satō","汤|sūpu","豆浆|tōnyū","不用／不使用|tsukaimasen","教导|oshiemasu","谁|dare","考试|tesuto","快点|hayaku","星期几|nanyoubi","项目|purojekuto","作业|shukudai","问|kikimasu","不用谢|dou itashimashite","刚才|sakki","给我看一下|misete kudasai","九个|kokonotsu","油腻|aburakoi","训练 / 练习|renshuu","队友|chiimumeito","好玩 / 有趣|tanoshii","今晚|konya","辛苦 / 累|taihen","表演 / 演出|pafoomansu","课程|ressun","父亲|otousan","母亲|okaasan","向王先生借书|Ou-san ni hon o karimasu","借 / 借用|karimasu","今年|kotoshi","今早|kesa","前天|ototoi","社团|saakuru","博客|burogu","截止日期|shimekiri","然后|soshite","方便|benri","学习 / 习得|naraimasu","打电话|(denwa o) kakemasu","牛仔裤|jiinzu","男士|menzu","女士|rediisu","积分卡|pointokaado","网络|netto","大厅|robii","入住 / 退房|chekkuin / chekkuauto","旁边|tonari","房间|heya","咖啡机|koohiimeekaa","碗 / 茶碗|chawan","大家|minna","在（时间助词）|ni","消息|messeeji","我们|watashitachi","他们|karera / tachi","快餐|faasutofuudo","一只|ippiki","两只|nihiki","三只|sanbiki","四只|yonhiki","几只|nanbiki","西红柿|tomato","多彩的 / 五颜六色的|karafuru","长椅|benchi","粉色|pinku","礼品店|gifutoshOppu"]]));localStorage.setItem('jp-vocab-progress-20260918-v1','1')}}catch{}
 setup();
+if('serviceWorker' in navigator&&location.protocol==='https:'){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+</script>
+<script>
+// Independent study sections; kept inline in the standalone HTML on release.
+const SERIES = {};
+function rows(text, category){return text.trim().split('\n').map(line=>line.split('|').concat(category))}
+SERIES['月份（1—12月）']=rows(`一月|ichigatsu|いちがつ
+二月|nigatsu|にがつ
+三月|sangatsu|さんがつ
+四月|shigatsu|しがつ
+五月|gogatsu|ごがつ
+六月|rokugatsu|ろくがつ
+七月|shichigatsu|しちがつ
+八月|hachigatsu|はちがつ
+九月|kugatsu|くがつ
+十月|juugatsu|じゅうがつ
+十一月|juuichigatsu|じゅういちがつ
+十二月|juunigatsu|じゅうにがつ`,'月份');
+SERIES['数字（0—100及大数）']=rows(`零|rei / zero|れい / ゼロ
+一|ichi|いち
+二|ni|に
+三|san|さん
+四|yon / shi|よん / し
+五|go|ご
+六|roku|ろく
+七|nana / shichi|なな / しち
+八|hachi|はち
+九|kyuu / ku|きゅう / く
+十|juu|じゅう`,'数字');
+const DIGITS=[null,'ichi|いち','ni|に','san|さん','yon|よん','go|ご','roku|ろく','nana|なな','hachi|はち','kyuu|きゅう'];
+for(let n=11;n<=100;n++){let t=Math.floor(n/10),u=n%10;let r=n===100?'hyaku':(t===1?'juu':DIGITS[t].split('|')[0]+'juu')+(u?' '+DIGITS[u].split('|')[0]:'');let k=n===100?'ひゃく':(t===1?'じゅう':DIGITS[t].split('|')[1]+'じゅう')+(u?DIGITS[u].split('|')[1]:'');SERIES['数字（0—100及大数）'].push([String(n),r,k,'数字'])}
+SERIES['数字（0—100及大数）'].push(...rows(`一千|sen|せん
+一万|ichiman|いちまん
+十万|juuman|じゅうまん
+一百万|hyakuman|ひゃくまん
+一千万|issenman|いっせんまん
+一亿|ichioku|いちおく`,'数字'));
+SERIES['星期（一—日）']=rows(`星期一|getsuyoubi|げつようび
+星期二|kayoubi|かようび
+星期三|suiyoubi|すいようび
+星期四|mokuyoubi|もくようび
+星期五|kinyoubi|きんようび
+星期六|doyoubi|どようび
+星期日|nichiyoubi|にちようび`,'星期');
+SERIES['时间（今天、明天等）']=rows(`前天|ototoi|おととい
+昨天|kinou|きのう
+今天|kyou|きょう
+明天|ashita|あした
+后天|asatte|あさって
+每天|mainichi|まいにち
+今早|kesa|けさ
+今晚|konban|こんばん
+昨天晚上|yuube|ゆうべ
+现在|ima|いま
+刚才|sakki|さっき
+以后|ato de|あとで
+上周|senshuu|せんしゅう
+本周|konshuu|こんしゅう
+下周|raishuu|らいしゅう
+每周|maishuu|まいしゅう
+上个月|sengetsu|せんげつ
+这个月|kongetsu|こんげつ
+下个月|raigetsu|らいげつ
+每个月|maitsuki|まいつき
+去年|kyonen|きょねん
+今年|kotoshi|ことし
+明年|rainen|らいねん
+每年|maitoshi|まいとし
+早上|asa|あさ
+中午／白天|hiru|ひる
+傍晚|yuugata|ゆうがた
+晚上|yoru|よる`,'时间');
+SERIES['颜色（名词）']=rows(`红色|aka|あか
+蓝色|ao|あお
+白色|shiro|しろ
+黑色|kuro|くろ
+黄色|kiiro|きいろ
+绿色|midori|みどり
+紫色|murasaki|むらさき
+粉色|pinku|ピンク
+橙色|orenji iro|オレンジいろ
+棕色|chairo|ちゃいろ
+灰色|haiiro|はいいろ
+金色|kin'iro|きんいろ
+银色|gin'iro|ぎんいろ`,'颜色');
+SERIES['日期（1—31日）']=rows(`1日|tsuitachi|ついたち
+2日|futsuka|ふつか
+3日|mikka|みっか
+4日|yokka|よっか
+5日|itsuka|いつか
+6日|muika|むいか
+7日|nanoka|なのか
+8日|youka|ようか
+9日|kokonoka|ここのか
+10日|tooka|とおか
+11日|juuichinichi|じゅういちにち
+12日|juuninichi|じゅうににち
+13日|juusannichi|じゅうさんにち
+14日|juuyokka|じゅうよっか
+15日|juugonichi|じゅうごにち
+16日|juurokunichi|じゅうろくにち
+17日|juushichinichi|じゅうしちにち
+18日|juuhachinichi|じゅうはちにち
+19日|juukunichi|じゅうくにち
+20日|hatsuka|はつか
+21日|nijuuichinichi|にじゅういちにち
+22日|nijuuninichi|にじゅうににち
+23日|nijuusannichi|にじゅうさんにち
+24日|nijuuyokka|にじゅうよっか
+25日|nijuugonichi|にじゅうごにち
+26日|nijuurokunichi|にじゅうろくにち
+27日|nijuushichinichi|にじゅうしちにち
+28日|nijuuhachinichi|にじゅうはちにち
+29日|nijuukunichi|にじゅうくにち
+30日|sanjuunichi|さんじゅうにち
+31日|sanjuuichinichi|さんじゅういちにち`,'日期');
+const PHRASES={};
+PHRASES['日常问候']=rows(`早上好（礼貌）|ohayou gozaimasu|おはようございます
+你好|konnichiwa|こんにちは
+晚上好|konbanwa|こんばんは
+谢谢（礼貌）|arigatou gozaimasu|ありがとうございます
+对不起／劳驾|sumimasen|すみません
+不好意思／抱歉|gomen nasai|ごめんなさい
+初次见面|hajimemashite|はじめまして
+请多关照|yoroshiku onegaishimasu|よろしくおねがいします
+我先告辞了|osaki ni shitsurei shimasu|おさきにしつれいします
+辛苦了（工作中的问候）|otsukaresama desu|おつかれさまです
+晚安|oyasumi nasai|おやすみなさい
+明天见|mata ashita|またあした`,'短语');
+PHRASES['购物与点餐']=rows(`这个多少钱？|kore wa ikura desu ka|これはいくらですか
+请给我这个|kore o kudasai|これをください
+可以用信用卡吗？|kurejitto kaado wa tsukaemasu ka|クレジットカードはつかえますか
+请给我菜单|menyuu o kudasai|メニューをください
+请给我水|mizu o kudasai|みずをください
+请结账|okaikei o onegaishimasu|おかいけいをおねがいします
+我开动了|itadakimasu|いただきます
+谢谢款待（饭后）|gochisousama deshita|ごちそうさまでした
+可以试穿吗？|shichaku shite mo ii desu ka|しちゃくしてもいいですか
+有大一点的吗？|motto ookii no wa arimasu ka|もっとおおきいのはありますか`,'短语');
+PHRASES['出行与住宿']=rows(`车站在哪里？|eki wa doko desu ka|えきはどこですか
+请到机场|kuukou made onegaishimasu|くうこうまでおねがいします
+到东京要多久？|toukyou made dono kurai kakarimasu ka|とうきょうまでどのくらいかかりますか
+我有预约|yoyaku shite imasu|よやくしています
+我想办理入住|chekkuin o onegaishimasu|チェックインをおねがいします
+洗手间在哪里？|toire wa doko desu ka|トイレはどこですか
+Wi-Fi密码是什么？|waifai no pasuwaado wa nan desu ka|ワイファイのパスワードはなんですか
+请再说一遍|mou ichido onegaishimasu|もういちどおねがいします
+请慢一点说|yukkuri hanashite kudasai|ゆっくりはなしてください
+我不太懂日语|nihongo ga amari wakarimasen|にほんごがあまりわかりません`,'短语');
+// Pattern: Chinese meaning, pattern, explanation, example JP, romaji, translation.
+const PATTERNS=[
+['A是B','AはBです','は作主题助词时读 wa。','わたしはがくせいです。','watashi wa gakusei desu.','我是学生。'],
+['A不是B','AはBではありません','礼貌的否定形式。','わたしはせんせいではありません。','watashi wa sensei dewa arimasen.','我不是老师。'],
+['A是B吗？','AはBですか','句尾加か构成疑问。','これはあなたのかさですか。','kore wa anata no kasa desu ka.','这是你的伞吗？'],
+['A在哪里？','Aはどこですか','用于问位置。','えきはどこですか。','eki wa doko desu ka.','车站在哪里？'],
+['某处有某物','場所に物があります','无生命的物品用あります，人和动物用います。','へやにつくえがあります。','heya ni tsukue ga arimasu.','房间里有书桌。'],
+['某处有人／动物','場所に人・動物がいます','に表示存在的位置。','にわにねこがいます。','niwa ni neko ga imasu.','庭院里有猫。'],
+['做某件事','名詞を動詞ます','を作宾语助词时读 o。','ほんをよみます。','hon o yomimasu.','读书。'],
+['去某处','場所へ行きます','へ作方向助词时读 e。','あしたがっこうへいきます。','ashita gakkou e ikimasu.','明天去学校。'],
+['在某处做某事','場所で動詞ます','で表示动作发生的场所。','としょかんでべんきょうします。','toshokan de benkyou shimasu.','在图书馆学习。'],
+['想做某事','動詞ます形去ます＋たいです','例：食べます→食べたいです。','すしをたべたいです。','sushi o tabetai desu.','我想吃寿司。'],
+['请做某事','動詞て形＋ください','动词要先变成て形。','ここにかいてください。','koko ni kaite kudasai.','请写在这里。'],
+['可以做某事吗？','動詞て形＋もいいですか','用于征求许可。','しゃしんをとってもいいですか。','shashin o totte mo ii desu ka.','可以拍照吗？'],
+['不能做某事','動詞て形＋はいけません','表示禁止。','ここでたばこをすってはいけません。','koko de tabako o sutte wa ikemasen.','这里不能吸烟。'],
+['正在做某事','動詞て形＋います','也可表示状态；这里练习正在进行的动作。','いまごはんをたべています。','ima gohan o tabete imasu.','现在正在吃饭。'],
+['一起做吧','動詞ます形去ます＋ましょう','邀请或提议。','いっしょにいきましょう。','issho ni ikimashou.','一起去吧。'],
+['要不要一起做？','動詞ます形去ます＋ませんか','较委婉的邀请。','いっしょにえいがをみませんか。','issho ni eiga o mimasen ka.','要不要一起看电影？'],
+['因为……','理由から、結果','から前面写原因。','あめですから、いきません。','ame desu kara, ikimasen.','因为下雨，所以不去。'],
+['喜欢某物','名詞が好きです','好き是形容动词。','にほんごがすきです。','nihongo ga suki desu.','我喜欢日语。'],
+['做过某事','動詞た形＋ことがあります','用于表达经历。','にほんへいったことがあります。','nihon e itta koto ga arimasu.','我去过日本。'],
+['想要某物','名詞がほしいです','说自己想要的物品。','あたらしいかばんがほしいです。','atarashii kaban ga hoshii desu.','我想要一个新包。']
+];
+const baseSetup=setup;
+setup=function(){baseSetup();const panel=document.createElement('div');panel.innerHTML='<hr class="divider"><h2>系统学习</h2><div class="actions"><button id="seriesNav">成套单词专项</button><button id="phrasesNav">常用短语、句式</button><button id="dataNav">词库备份与同步</button></div><p class="form-note">2026.09.18 · 专项内容独立整理，不改变你的新增词汇状态。</p>';$('#app').append(panel);$('#seriesNav').onclick=()=>studyMenu(false);$('#phrasesNav').onclick=()=>studyMenu(true);$('#dataNav').onclick=dataPanel};
+function studyMenu(phrases){const groups=phrases?PHRASES:SERIES;$('#app').innerHTML='<h2>'+ (phrases?'常用短语、句式':'成套单词专项')+'</h2><p>先按顺序学习，再随机自测；每条都可点播日语。</p><div class="word-grid">'+Object.entries(groups).map(([name,list],i)=>'<button data-group="'+i+'">'+esc(name)+' · '+list.length+'条</button>').join('')+'</div>'+(phrases?'<button id="patterns">常用句式 · '+PATTERNS.length+'组</button>':'<p class="form-note">四月读 shigatsu、七月读 shichigatsu、九月读 kugatsu；数字读法会随月份、日期及量词变化。颜色表为名词形式，如「あか」修饰名词时常用「あかい」。</p>')+'<div class="actions"><button id="home">返回首页</button></div>';$('#home').onclick=setup;$('#app').querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>studyList(Object.keys(groups)[+b.dataset.group],groups[Object.keys(groups)[+b.dataset.group]],phrases));if(phrases)$('#patterns').onclick=patternList}
+function studyList(title,list,phrases){$('#app').innerHTML='<h2>'+esc(title)+'</h2><div class="actions"><button id="testCN">中文 → 日语自测</button><button id="testJP">日语 → 中文自测</button><button id="back">返回分类</button></div><div class="word-grid">'+list.map((w,i)=>'<article class="word-card"><div class="word-cn">'+esc(w[0])+'</div><div>'+esc(w[1])+'</div><div class="word-jp">'+esc(w[2])+'</div><button data-audio="'+i+'">🔊 发音</button></article>').join('')+'</div>';$('#back').onclick=()=>studyMenu(phrases);$('#testCN').onclick=()=>studyTest(list,false,()=>studyList(title,list,phrases));$('#testJP').onclick=()=>studyTest(list,true,()=>studyList(title,list,phrases));$('#app').querySelectorAll('[data-audio]').forEach(b=>b.onclick=()=>speakJapanese(speechText(list[+b.dataset.audio])))}
+function studyTest(list,jpcn,back){let queue=shuffle(list),i=0,correct=0;function draw(){if(i===queue.length){$('#app').innerHTML='<h2>专项完成</h2><p>答对 '+correct+' / '+queue.length+' 题</p><button id="back">返回学习列表</button>';$('#back').onclick=back;return}let w=queue[i];$('#app').innerHTML='<p>专项 '+(i+1)+' / '+queue.length+'</p><div class="prompt">'+esc(jpcn?w[2]:w[0])+'</div><div id="studyAnswer" class="hidden"><p>'+esc(w[0])+'</p><p>'+esc(w[1])+'</p><p>'+esc(w[2])+'</p></div><div class="actions">'+(jpcn?'<button id="studySpeak">🔊 再听一次</button>':'')+'<button id="studyShow">显示答案</button><button id="studyBack">退出专项</button></div><div id="studyGrade" class="actions hidden"><button id="studyYes">我答对了</button><button id="studyNo">再练一练</button></div>';$('#studyBack').onclick=back;$('#studyShow').onclick=()=>{$('#studyAnswer').classList.remove('hidden');$('#studyGrade').classList.remove('hidden');$('#studyShow').disabled=true};$('#studyYes').onclick=()=>{correct++;i++;draw()};$('#studyNo').onclick=()=>{i++;draw()};if(jpcn){$('#studySpeak').onclick=()=>speakJapanese(speechText(w));speakJapanese(speechText(w))}}draw()}
+function patternList(){const practice=PATTERNS.map(p=>[p[5],p[4],p[3],'句式']);$('#app').innerHTML='<h2>常用句式</h2><p>先看结构和用法，再用完整例句练习。</p><div class="actions"><button id="patternTest">例句专项自测</button><button id="patternBack">返回分类</button></div>'+PATTERNS.map((p,i)=>'<article class="word-card" style="margin:12px 0"><h3>'+esc(p[0])+'</h3><b>'+esc(p[1])+'</b><p>'+esc(p[2])+'</p><p>'+esc(p[3])+'</p><p>'+esc(p[4])+'</p><p>'+esc(p[5])+'</p><button data-pattern="'+i+'">🔊 听例句</button></article>').join('');$('#patternBack').onclick=()=>studyMenu(true);$('#patternTest').onclick=()=>studyTest(practice,false,patternList);$('#app').querySelectorAll('[data-pattern]').forEach(b=>b.onclick=()=>speakJapanese(PATTERNS[+b.dataset.pattern][3]))}
+function exportLearning(){const data={format:'jp-vocab-backup',version:1,exportedAt:new Date().toISOString(),custom:customWords(),learned:[...learnedCustomKeys()],wrong:wrongWords()};const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='日语学习备份-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+function validateBackup(data){if(!data||data.format!=='jp-vocab-backup'||data.version!==1)throw Error('请选择本网页导出的学习备份');for(const field of ['custom','wrong']){if(!Array.isArray(data[field])||data[field].length>20000||data[field].some(w=>!Array.isArray(w)||w.length!==4||w.some(v=>typeof v!=='string'||v.length>2000)||!w[0].trim()||!w[1].trim()))throw Error('备份词汇格式不正确')}if(!Array.isArray(data.learned)||data.learned.some(k=>typeof k!=='string'||k.length>4001))throw Error('已学会记录格式不正确');return data}
+function importLearning(data){validateBackup(data);const merge=(old,fresh)=>{const map=new Map(old.map(w=>[wordKey(w),w]));fresh.forEach(w=>map.set(wordKey(w),w));return [...map.values()]};const next={};next[CUSTOM_KEY]=JSON.stringify(merge(customWords(),data.custom));next[WRONG_KEY]=JSON.stringify(merge(wrongWords(),data.wrong));next[LEARNED_CUSTOM_KEY]=JSON.stringify([...new Set([...learnedCustomKeys(),...data.learned])]);const previous=Object.fromEntries(Object.keys(next).map(k=>[k,localStorage.getItem(k)]));try{for(const k of Object.keys(next))localStorage.setItem(k,next[k])}catch(e){for(const k of Object.keys(previous)){try{if(previous[k]===null)localStorage.removeItem(k);else localStorage.setItem(k,previous[k])}catch{}}throw Error('保存失败，请先导出备份并检查浏览器存储空间')}return data.custom.length}
+function dataPanel(){$('#app').innerHTML='<h2>词库备份与同步</h2><p>电脑和手机各自保存学习数据，不会自动互通。先在电脑导出，再将备份文件传到手机并在公开网页导入。</p><button id="exportData">导出学习数据</button><p>备份包括全部新增词、已学会记录和错题。导入会合并数据，不删除本机其他词汇；相同中文和罗马音以备份中的内容为准。</p><label>选择学习备份（JSON）<input id="importData" type="file" accept=".json,application/json"></label><p id="dataStatus" role="status"></p><button id="dataBack">返回首页</button>';$('#exportData').onclick=exportLearning;$('#dataBack').onclick=setup;$('#importData').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{if(f.size>10*1024*1024)throw Error('备份文件过大');const d=validateBackup(JSON.parse(await f.text()));if(!confirm('将合并 '+d.custom.length+' 个词及学习记录，是否继续？'))return;importLearning(d);$('#dataStatus').textContent='导入成功，共处理 '+d.custom.length+' 个新增词。'}catch(err){$('#dataStatus').textContent=err.message}}}
+setup();
+
 </script></body></html>
