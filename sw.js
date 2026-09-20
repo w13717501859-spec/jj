@@ -1,4 +1,4 @@
-const CACHE_NAME = "jp-vocab-app-20260918-v1";
+const CACHE_NAME = "jp-vocab-app-20260920-v1";
 const APP_FILES = [
   "./quiz.html",
   "./manifest.webmanifest",
